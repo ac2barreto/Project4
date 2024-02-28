@@ -41,3 +41,5 @@
 - Run the Python script to perform the analysis and model training. (There is a seperate .py script for this!)
 - Input the data when prompted to receive a diabetes prediction. This is educational, check with a doctor no matter the outcome provided!!
 - The repository contains data CSV, a python ypnb notebook with the whole code analysis, a .py script for any user to run, and various images and visual resources
+
+Presentation: https://docs.google.com/presentation/d/1ZhL4FYGR7v_rv-YlsMroukcmpLiIzDNBknqVb6HGox0/edit?usp=sharing 
