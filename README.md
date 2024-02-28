@@ -43,3 +43,12 @@
 - The repository contains data CSV, a python ypnb notebook with the whole code analysis, a .py script for any user to run, and various images and visual resources
 
 Presentation: https://docs.google.com/presentation/d/1ZhL4FYGR7v_rv-YlsMroukcmpLiIzDNBknqVb6HGox0/edit?usp=sharing 
+
+
+Authors:
+Alana Castellano
+Andrea Barreto
+Francisco Diaz
+Arezoo Houshi
+Juan Diaz
+
