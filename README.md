@@ -34,7 +34,7 @@
 - Pydotplus & IPython.display: For visualizing the decision tree.
 
 ## Dataset
-The dataset used in this project, Healthcare-Diabetes.csv, contains several health metrics that are indicative of whether an individual has diabetes. The features include Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes Pedigree Function, Age, and the Outcome (0 for negative, 1 for positive). Dataset obtained from Kaggle: [LINK| https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database]
+- The dataset used in this project, Healthcare-Diabetes.csv, contains several health metrics that are indicative of whether an individual has diabetes. The features include Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes Pedigree Function, Age, and the Outcome (0 for negative, 1 for positive). Dataset obtained from Kaggle: [LINK| https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database]
 
 ## Notes on Use
 - Ensure you have the required libraries installed.
