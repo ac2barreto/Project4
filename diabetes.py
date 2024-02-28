@@ -119,7 +119,17 @@ def predict():
         'Age': [data.get('Age')]
     })
     prediction = dt_model.predict(pred_df)
-    return jsonify({'Prediction': int(prediction[0])})
+
+        # Check the prediction value and set message accordingly
+    if prediction[0] == 1:
+        result = "According to our model, you might have Diabetes! Please check-in with a doc!"
+    elif prediction[0] == 2:
+        result = "According to our model, you might NOT have Diabetes! Please check-in with a doc anyways!"
+    else:
+        result = "unknown"  # Handle unexpected prediction values
+
+  #  return jsonify({'Prediction': int(prediction[0])})
+    return jsonify({'Prediction': result})
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
