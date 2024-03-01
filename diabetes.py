@@ -122,14 +122,15 @@ def predict():
 
         # Check the prediction value and set message accordingly
     if prediction[0] == 1:
-        result = "According to our model, you might have Diabetes! Please check-in with a doc!"
-    elif prediction[0] == 2:
-        result = "According to our model, you might NOT have Diabetes! Please check-in with a doc anyways!"
-    else:
-        result = "unknown"  # Handle unexpected prediction values
+        result = "According to our model, the patient has Diabetes! Please do further testing to determine course of treatment!"
+    elif prediction[0] == 0:
+        result = "According to our model, the patient might NOT have Diabetes! Please schedule a follow-up appointment!"
+    #else:
+       # result = "unknown"  # Handle unexpected prediction values
 
   #  return jsonify({'Prediction': int(prediction[0])})
-    return jsonify({'Prediction': result})
+    #return jsonify({'Prediction': result})
+    return result
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

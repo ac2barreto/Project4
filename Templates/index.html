@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Diabetes Prediction Form</title>
+  <title>Diabetes Prediction</title>
+  
+  <style>
+    #prediction {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.5s;  
+    }
+    
+    #prediction.visible {
+      opacity: 1;
+    }
+  </style>
 </head>
+
 <body>
-    <h2>Diabetes Prediction Input Form</h2>
-    <form action="/predict" method="post">
-        <label for="pregnancies">How many pregnancies have you had?</label><br>
+
+  <h2>Diabetes Prediction</h2>
+
+  <form id="prediction-form">
+
+	<label for="pregnancies">How many pregnancies has the patient had?</label><br>
         <input type="number" id="pregnancies" name="Pregnancies"><br>
         
-        <label for="glucose">What is your Glucose level?</label><br>
+        <label for="glucose">What is the patient's Glucose?</label><br>
         <input type="number" id="glucose" name="Glucose"><br>
         
-        <label for="bloodPressure">What is your Blood Pressure?</label><br>
+        <label for="bloodPressure">What is the patient's Blood Pressure?</label><br>
         <input type="number" id="bloodPressure" name="BloodPressure"><br>
         
-        <label for="skinThickness">What is your Skin Thickness?</label><br>
+        <label for="skinThickness">What is the patient's Skin Thickness?</label><br>
         <input type="number" id="skinThickness" name="SkinThickness"><br>
         
-        <label for="insulin">What is your Insulin level?</label><br>
+        <label for="insulin">What is the patient's Insulin?</label><br>
         <input type="number" id="insulin" name="Insulin"><br>
         
-        <label for="bmi">What is your BMI?</label><br>
+        <label for="bmi">What is the patient's BMI?</label><br>
         <input type="number" step="0.01" id="bmi" name="BMI"><br>
         
-        <label for="diabetesPedigreeFunction">What is your Diabetes Pedigree Function?</label><br>
+        <label for="diabetesPedigreeFunction">What is the patient's Diabetes Pedigree Function?</label><br>
         <input type="number" step="0.001" id="diabetesPedigreeFunction" name="DiabetesPedigreeFunction"><br>
         
-        <label for="age">What is your Age?</label><br>
+        <label for="age">What is the patient's Age?</label><br>
         <input type="number" id="age" name="Age"><br><br>
-        
-        <input type="submit" value="Submit">
-    </form>
+    
+    <button type="submit">Predict</button>
+
+  </form>
+
+  <div id="prediction"></div>
+
+  <script>
+    const form = document.getElementById('prediction-form');
+    const predictionElement = document.getElementById('prediction');
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      
+      const response = await fetch('/predict', {
+        method: 'POST', 
+        body: new FormData(form)
+      });
+
+      const prediction = await response.text();
+
+      predictionElement.innerText = prediction;  
+      predictionElement.classList.add('visible');
+    });
+  </script>
+
 </body>
 </html>
  
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabetes Prediction Form</title>
-</head>
-<body>
-    <h1>Enter Your Details for Diabetes Prediction</h1>
-    <form action="http://127.0.0.1:1234/predict_diabetes" method="get">
-        <label for="Pregnancies">Pregnancies:</label>
-        <input type="number" id="Pregnancies" name="Pregnancies" required><br><br>
-        
-        <label for="Glucose">Glucose:</label>
-        <input type="number" id="Glucose" name="Glucose" required><br><br>
-        
-        <label for="BloodPressure">Blood Pressure:</label>
-        <input type="number" id="BloodPressure" name="BloodPressure" required><br><br>
-        
-        <label for="SkinThickness">Skin Thickness:</label>
-        <input type="number" id="SkinThickness" name="SkinThickness" required><br><br>
-        
-        <label for="Insulin">Insulin:</label>
-        <input type="number" id="Insulin" name="Insulin"><br><br>
-        
-        <label for="BMI">BMI:</label>
-        <input type="number" step="0.01" id="BMI" name="BMI" required><br><br>
-        
-        <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
-        <input type="number" step="0.001" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required><br><br>
-        
-        <label for="Age">Age:</label>
-        <input type="number" id="Age" name="Age" required><br><br>
-        
-        <input type="submit" value="Predict">
-    </form>
-</body>
-</html> -->
